@@ -42,9 +42,9 @@ The application should now be running locally. You can access it in your browser
 
 Once the application is running, you can access the Magexo HR Application in your web browser. The landing page will display the employee listing.
 
-- To add a new employee, click on the "Add Employee" button and fill in the required information in the provided form.
-- To edit an existing employee's information, click on the "Edit" button next to the respective employee's entry.
-- To delete an employee, click on the "Delete" button next to the respective employee's entry. A confirmation prompt will appear before the deletion is finalized.
+- To add a new employee, click on the "Create new employee" button and fill in the required information in the provided form.
+- To edit an existing employee's information, click on the edit icon button next to the respective employee's entry.
+- To delete an employee, click on the delete icon button next to the respective employee's entry. A confirmation prompt will appear before the deletion is finalized.
 
 ## Tests
 
