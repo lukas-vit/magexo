@@ -13,10 +13,13 @@ import { createApp } from 'vue';
  * to use in your application's views. An example is included for you.
  */
 
-const app = createApp({});
 
-import ExampleComponent from './components/ExampleComponent.vue';
-app.component('example-component', ExampleComponent);
+import Home from './pages/Home.vue';
+import router from './router';
+
+const app = createApp(Home);
+
+app.use(router);
 
 /**
  * The following block of code may be used to automatically register your

@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 import vue from '@vitejs/plugin-vue';
+import Components from 'unplugin-vue-components/vite'
 
 export default defineConfig({
     plugins: [
@@ -18,6 +19,16 @@ export default defineConfig({
                     includeAbsolute: false,
                 },
             },
+        }),
+        Components({
+            dirs: ['resources/js/components'],
+            dts: true,
+            extensions: ['vue', 'ts'],
+            include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
+            resolvers: [],
+            directoryAsNamespace: true,
+            globalNamespaces: [],
+            deep: false,
         }),
     ],
     resolve: {
