@@ -77,6 +77,7 @@ onMounted(() => {
                                 >
                                     <table
                                         class="min-w-full divide-y divide-gray-300"
+                                        v-if="employees.length > 0"
                                     >
                                         <TableHead />
                                         <tbody
@@ -88,6 +89,23 @@ onMounted(() => {
                                             />
                                         </tbody>
                                     </table>
+                                    <div
+                                        class="items-center justify-center mt-4"
+                                        v-else
+                                    >
+                                        <p class="text-gray-500 text-center">
+                                            No employees found
+                                        </p>
+                                        <!-- button to add employee -->
+                                        <div class="w-1/6 mt-4 pt-4 sm:mt-0">
+                                            <router-link
+                                                to="/employee/add"
+                                                class="block rounded-md bg-primary py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-primary-darker focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                                            >
+                                                Create new employee
+                                            </router-link>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -95,6 +113,7 @@ onMounted(() => {
                 </div>
 
                 <Pagination
+                    v-if="employees.length > 0"
                     :meta="meta"
                     :fetchEmployeesByPage="fetchEmployeesByPage"
                 />
