@@ -11,7 +11,16 @@ class EmployeesController extends Controller
     public function index(Request $request)
     {
         $perPage = $request->query('per_page', 10);
-        $employees = Employee::paginate($perPage);
+
+        $validatedData = $request->validate([
+            'per_page' => 'integer|min:1|max:100', // Example validation rule
+        ]);
+
+        if (empty($validatedData['per_page'])) {
+            $validatedData['per_page'] = $perPage;
+        }
+
+        $employees = Employee::paginate($validatedData['per_page']);
 
         return response()->json([
             'data' => $employees->items(),
@@ -46,6 +55,10 @@ class EmployeesController extends Controller
             'department' => 'required|max:255',
         ]);
 
+        // Sanitize email field
+        $validatedData['email'] = filter_var($validatedData['email'], FILTER_SANITIZE_EMAIL);
+
+
         //check for unique email
         $employee = Employee::where('email', $request->email)->first();
 
@@ -73,6 +86,9 @@ class EmployeesController extends Controller
             ],
             'department' => 'required|max:255',
         ]);
+
+        // Sanitize email field
+        $validatedData['email'] = filter_var($validatedData['email'], FILTER_SANITIZE_EMAIL);
 
         $employee->update($validatedData);
 
