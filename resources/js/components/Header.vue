@@ -123,7 +123,9 @@ const userNavigation = [
                                                             : '',
                                                         'block px-4 py-2 text-sm text-gray-700',
                                                     ]"
-                                                    >{{ item.name }}</router-link
+                                                    >{{
+                                                        item.name
+                                                    }}</router-link
                                                 >
                                             </MenuItem>
                                         </MenuItems>
@@ -174,12 +176,12 @@ const userNavigation = [
                     <div class="flex items-center px-5">
                         <div class="flex-shrink-0">
                             <router-link to="/">
-                            <img
-                                class="h-10 w-10 rounded-full"
-                                src="https://www.magexo.cz/coGhk58axEfl4/themes/magexo/favicons/favicon-32x32.png"
-                                alt=""
-                            />
-                        </router-link>
+                                <img
+                                    class="h-10 w-10 rounded-full"
+                                    src="https://www.magexo.cz/coGhk58axEfl4/themes/magexo/favicons/favicon-32x32.png"
+                                    alt=""
+                                />
+                            </router-link>
                         </div>
                         <div class="ml-3">
                             <div

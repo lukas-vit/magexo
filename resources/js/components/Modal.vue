@@ -21,8 +21,6 @@ const emit = defineEmits(["deleteEmployee"]);
 const confirmDelete = () => {
     emit("deleteEmployee");
 };
-
-
 </script>
 
 <template>
@@ -77,7 +75,8 @@ const confirmDelete = () => {
                                     >
                                     <div class="mt-2">
                                         <p class="text-sm text-gray-500">
-                                            Are you sure you want to delete the employee?
+                                            Are you sure you want to delete the
+                                            employee?
                                         </p>
                                     </div>
                                 </div>

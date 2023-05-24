@@ -68,7 +68,8 @@ const deleteEmployee = (id) => {
             <router-link
                 :to="{ name: 'edit-employee', params: { id: employee.id } }"
                 class="text-primary hover:text-primary-darker"
-                ><PencilSquareIcon class="h-6 w-6" aria-hidden="true" /><span class="sr-only"
+                ><PencilSquareIcon class="h-6 w-6" aria-hidden="true" /><span
+                    class="sr-only"
                     >, {{ employee.name }}</span
                 ></router-link
             >
@@ -80,8 +81,10 @@ const deleteEmployee = (id) => {
                 @click="confirmDelete(employee)"
                 class="text-red-600 hover:text-primary-darker mt-1"
             >
-                <TrashIcon class="h-6 w-6" aria-hidden="true" /><span class="sr-only"
-                >, {{ employee.name }}</span>
+                <TrashIcon class="h-6 w-6" aria-hidden="true" /><span
+                    class="sr-only"
+                    >, {{ employee.name }}</span
+                >
             </button>
         </td>
     </tr>

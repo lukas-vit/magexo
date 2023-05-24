@@ -6,8 +6,7 @@
                 <div
                     class="border-b border-gray-200 bg-white px-4 py-8 sm:px-6"
                 >
-                    <EmployeeForm
-                    />
+                    <EmployeeForm />
                 </div>
             </div>
         </main>

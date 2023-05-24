@@ -32,7 +32,7 @@ const updateEmployee = (employee) => {
     axios
         .put(`/api/employees/${id}`, employee)
         .then((response) => {
-            router.push({ name: "Home" }).then (() => {
+            router.push({ name: "Home" }).then(() => {
                 toast.success("Employee updated successfully!");
             });
         })

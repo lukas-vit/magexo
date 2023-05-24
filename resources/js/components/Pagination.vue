@@ -1,7 +1,6 @@
 <script setup>
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/vue/20/solid";
 
-
 const props = defineProps({
     meta: {
         type: Object,
@@ -41,7 +40,6 @@ const getEndIndex = () => {
     }
     return 0;
 };
-
 </script>
 
 <template>
