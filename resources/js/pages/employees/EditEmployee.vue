@@ -1,6 +1,6 @@
 <script setup>
-import { toast } from 'vue3-toastify';
-import 'vue3-toastify/dist/index.css';
+import { toast } from "vue3-toastify";
+import "vue3-toastify/dist/index.css";
 import { useRouter } from "vue-router";
 import { ref, onMounted, reactive } from "vue";
 
@@ -21,26 +21,31 @@ const fetchEmployee = () => {
 };
 
 const updateEmployee = (employee) => {
-    if (!employee.name || !employee.email || !employee.designation || !employee.department) {
-        //toast.error('Please fill all the fields!');
+    if (
+        !employee.name ||
+        !employee.email ||
+        !employee.designation ||
+        !employee.department
+    ) {
         return;
     }
     axios
         .put(`/api/employees/${id}`, employee)
         .then((response) => {
-            toast.success('Employee updated successfully!');
+            toast.success("Employee updated successfully!");
         })
         .catch((error) => {
             console.error(error);
         });
-};
 
+    if (employee) {
+        router.push({ name: "Home" });
+    }
+};
 
 onMounted(() => {
     fetchEmployee();
 });
-
-
 </script>
 
 <template>
@@ -51,7 +56,11 @@ onMounted(() => {
                     class="border-b border-gray-200 bg-white px-4 py-8 sm:px-6"
                 >
                     <div class="px-4 sm:px-6 lg:px-8">
-                        <EmployeeForm :employee="employee" :onSubmit="updateEmployee" buttonValue="Update" />
+                        <EmployeeForm
+                            :employee="employee"
+                            :onSubmit="updateEmployee"
+                            buttonValue="Update"
+                        />
                     </div>
                 </div>
             </div>

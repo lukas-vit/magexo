@@ -4,8 +4,9 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-import './bootstrap';
-import { createApp } from 'vue';
+import "./bootstrap";
+import { createApp } from "vue";
+import Vue3Toastify from "vue3-toastify";
 
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
@@ -13,13 +14,16 @@ import { createApp } from 'vue';
  * to use in your application's views. An example is included for you.
  */
 
-
-import App from './App.vue';
-import router from './router';
+import App from "./App.vue";
+import router from "./router";
 
 const app = createApp(App);
 
 app.use(router);
+
+app.use(Vue3Toastify, {
+    autoClose: 3000,
+});
 
 /**
  * The following block of code may be used to automatically register your
@@ -39,4 +43,4 @@ app.use(router);
  * scaffolding. Otherwise, you will need to add an element yourself.
  */
 
-app.mount('#app');
+app.mount("#app");

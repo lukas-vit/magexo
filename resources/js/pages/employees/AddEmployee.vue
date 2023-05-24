@@ -3,6 +3,8 @@ import { toast } from 'vue3-toastify';
 import 'vue3-toastify/dist/index.css';
 import { useRouter } from "vue-router";
 
+const router = useRouter();
+
 const createEmployee = (employee) => {
     if (!employee.name || !employee.email || !employee.designation || !employee.department) {
         //toast.error('Please fill all the fields!');
@@ -11,7 +13,6 @@ const createEmployee = (employee) => {
     axios
         .post("/api/employees", employee)
         .then((response) => {
-            console.log(response.data);
             toast.success('Employee created successfully!');
         })
         .catch((error) => {
@@ -19,7 +20,7 @@ const createEmployee = (employee) => {
         });
     
         if (employee) {
-            router.push({ name: "employees" });
+            router.push({ name: "Home" })
         }
 };
 </script>

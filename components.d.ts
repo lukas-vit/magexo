@@ -13,6 +13,7 @@ declare module '@vue/runtime-core' {
     EmployeeAdd: typeof import('./resources/js/components/EmployeeAdd.vue')['default']
     EmployeeForm: typeof import('./resources/js/components/EmployeeForm.vue')['default']
     EmployeeList: typeof import('./resources/js/components/EmployeeList.vue')['default']
+    Footer: typeof import('./resources/js/components/Footer.vue')['default']
     Head: typeof import('./resources/components/Head.vue')['default']
     Header: typeof import('./resources/js/components/Header.vue')['default']
     Input: typeof import('./resources/js/components/Input.vue')['default']

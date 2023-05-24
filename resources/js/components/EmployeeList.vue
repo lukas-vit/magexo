@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
-import { toast } from 'vue3-toastify';
-import 'vue3-toastify/dist/index.css';
+import { toast } from "vue3-toastify";
+import "vue3-toastify/dist/index.css";
 
 const props = defineProps({
     employees: {
@@ -27,8 +27,7 @@ const deleteEmployee = (id) => {
     axios
         .delete(`/api/employees/${id}`)
         .then((response) => {
-            console.log(response.data);
-            toast.success('Employee deleted successfully!');
+            toast.success("Employee deleted successfully!");
             showModal.value = false;
             props.fetchEmployees();
         })
@@ -36,11 +35,16 @@ const deleteEmployee = (id) => {
             console.error(error);
         });
 };
-
 </script>
 
 <template>
-    <Modal v-if="showModal" :showModal="showModal" :employee="selectedEmployee" @modal-close="showModal = false" @deleteEmployee="deleteEmployee(selectedEmployee.id)"/>
+    <Modal
+        v-if="showModal"
+        :showModal="showModal"
+        :employee="selectedEmployee"
+        @modal-close="showModal = false"
+        @deleteEmployee="deleteEmployee(selectedEmployee.id)"
+    />
     <tr v-for="employee in employees" :key="employee.id">
         <td
             class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0"
@@ -71,7 +75,7 @@ const deleteEmployee = (id) => {
             class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm sm:pr-0"
         >
             <button
-                @click="confirmDelete(employee)" 
+                @click="confirmDelete(employee)"
                 class="text-red-600 hover:text-primary-darker"
             >
                 Delete

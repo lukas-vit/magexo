@@ -5,8 +5,7 @@
         <main>
             <router-view></router-view>
         </main>
-        <footer>
-            <!-- Footer content -->
-        </footer>
+    
+        <Footer />
     </div>
 </template>

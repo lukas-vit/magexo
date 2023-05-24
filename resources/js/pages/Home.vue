@@ -9,7 +9,6 @@ const fetchEmployees = () => {
     axios
         .get("/api/employees")
         .then((response) => {
-            console.log(response.data);
             employees.value = response.data.data;
             meta.value = response.data.meta;
         })
@@ -56,14 +55,15 @@ onMounted(() => {
                                 </h1>
                                 <p class="mt-2 text-sm text-gray-700">
                                     A list of all the employees in your company
-                                    including their name, email, designation and department.
+                                    including their name, email, designation and
+                                    department.
                                 </p>
                             </div>
                             <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
                                 <router-link
                                     to="/employee/add"
                                     class="block rounded-md bg-primary px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-primary-darker focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-                                    >
+                                >
                                     Create new employee
                                 </router-link>
                             </div>
@@ -83,7 +83,8 @@ onMounted(() => {
                                             class="divide-y divide-gray-200 bg-white"
                                         >
                                             <EmployeeList
-                                                :employees="employees" :fetchEmployees="fetchEmployees"
+                                                :employees="employees"
+                                                :fetchEmployees="fetchEmployees"
                                             />
                                         </tbody>
                                     </table>
@@ -93,7 +94,10 @@ onMounted(() => {
                     </div>
                 </div>
 
-                <Pagination :meta="meta" :fetchEmployeesByPage="fetchEmployeesByPage" />
+                <Pagination
+                    :meta="meta"
+                    :fetchEmployeesByPage="fetchEmployeesByPage"
+                />
             </div>
         </main>
     </div>
