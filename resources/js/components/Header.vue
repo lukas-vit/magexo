@@ -39,11 +39,13 @@ const userNavigation = [
                     >
                         <div class="flex items-center">
                             <div class="flex-shrink-0">
-                                <img
-                                    class="h-8 w-8"
-                                    src="https://www.magexo.cz/coGhk58axEfl4/themes/magexo/favicons/favicon-32x32.png"
-                                    alt="Your Company"
-                                />
+                                <router-link to="/">
+                                    <img
+                                        class="h-8 w-8"
+                                        src="https://www.magexo.cz/coGhk58axEfl4/themes/magexo/favicons/favicon-32x32.png"
+                                        alt="Your Company"
+                                    />
+                                </router-link>
                             </div>
                             <div class="hidden md:block">
                                 <div
@@ -171,11 +173,13 @@ const userNavigation = [
                 <div class="border-t border-gray-700 pb-3 pt-4">
                     <div class="flex items-center px-5">
                         <div class="flex-shrink-0">
+                            <router-link to="/">
                             <img
                                 class="h-10 w-10 rounded-full"
                                 src="https://www.magexo.cz/coGhk58axEfl4/themes/magexo/favicons/favicon-32x32.png"
                                 alt=""
                             />
+                        </router-link>
                         </div>
                         <div class="ml-3">
                             <div
