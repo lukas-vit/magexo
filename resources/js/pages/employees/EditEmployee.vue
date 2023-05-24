@@ -2,7 +2,7 @@
 import { toast } from "vue3-toastify";
 import "vue3-toastify/dist/index.css";
 import { useRouter } from "vue-router";
-import { ref, onMounted, reactive } from "vue";
+import { ref, onMounted } from "vue";
 
 const router = useRouter();
 const id = router.currentRoute.value.params.id;
@@ -32,15 +32,14 @@ const updateEmployee = (employee) => {
     axios
         .put(`/api/employees/${id}`, employee)
         .then((response) => {
-            toast.success("Employee updated successfully!");
+            router.push({ name: "Home" }).then (() => {
+                toast.success("Employee updated successfully!");
+            });
         })
         .catch((error) => {
+            toast.error(error.response.data.message);
             console.error(error);
         });
-
-    if (employee) {
-        router.push({ name: "Home" });
-    }
 };
 
 onMounted(() => {

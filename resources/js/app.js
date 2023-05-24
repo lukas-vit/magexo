@@ -6,7 +6,6 @@
 
 import "./bootstrap";
 import { createApp } from "vue";
-import Vue3Toastify from "vue3-toastify";
 
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
@@ -20,10 +19,6 @@ import router from "./router";
 const app = createApp(App);
 
 app.use(router);
-
-app.use(Vue3Toastify, {
-    autoClose: 3000,
-});
 
 /**
  * The following block of code may be used to automatically register your

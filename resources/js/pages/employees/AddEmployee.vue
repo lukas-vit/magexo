@@ -12,15 +12,14 @@ const createEmployee = (employee) => {
     axios
         .post("/api/employees", employee)
         .then((response) => {
-            toast.success('Employee created successfully!');
+            router.push({ name: "Home" }).then (() => {
+                toast.success("Employee created successfully!");
+            });
         })
         .catch((error) => {
+            toast.error(error.response.data.message);
             console.error(error);
         });
-    
-        if (employee) {
-            router.push({ name: "Home" })
-        }
 };
 </script>
 
