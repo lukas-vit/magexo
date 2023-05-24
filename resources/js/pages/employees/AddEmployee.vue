@@ -7,7 +7,6 @@ const router = useRouter();
 
 const createEmployee = (employee) => {
     if (!employee.name || !employee.email || !employee.designation || !employee.department) {
-        //toast.error('Please fill all the fields!');
         return;
     }
     axios

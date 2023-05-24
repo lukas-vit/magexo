@@ -9,16 +9,13 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    App: typeof import('./resources/components/App.vue')['default']
     EmployeeAdd: typeof import('./resources/js/components/EmployeeAdd.vue')['default']
     EmployeeForm: typeof import('./resources/js/components/EmployeeForm.vue')['default']
     EmployeeList: typeof import('./resources/js/components/EmployeeList.vue')['default']
     Footer: typeof import('./resources/js/components/Footer.vue')['default']
-    Head: typeof import('./resources/components/Head.vue')['default']
     Header: typeof import('./resources/js/components/Header.vue')['default']
     Input: typeof import('./resources/js/components/Input.vue')['default']
     Modal: typeof import('./resources/js/components/Modal.vue')['default']
-    Navigation: typeof import('./resources/components/Navigation.vue')['default']
     Pagination: typeof import('./resources/js/components/Pagination.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
