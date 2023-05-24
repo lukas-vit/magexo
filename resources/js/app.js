@@ -14,10 +14,10 @@ import { createApp } from 'vue';
  */
 
 
-import Home from './pages/Home.vue';
+import App from './App.vue';
 import router from './router';
 
-const app = createApp(Home);
+const app = createApp(App);
 
 app.use(router);
 
