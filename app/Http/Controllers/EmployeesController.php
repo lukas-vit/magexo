@@ -24,6 +24,19 @@ class EmployeesController extends Controller
         ]);
     }
 
+    public function show(int $id)
+    {
+        $employee = Employee::find($id);
+
+        if ($employee) {
+            return response()->json($employee);
+        } else {
+            return response()->json([
+                'message' => 'Employee not found',
+            ], 404);
+        }
+    }
+
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -32,6 +45,15 @@ class EmployeesController extends Controller
             'email' => 'required|email|unique:employees',
             'department' => 'required',
         ]);
+
+        //check for unique email
+        $employee = Employee::where('email', $request->email)->first();
+
+        if ($employee) {
+            return response()->json([
+                'message' => 'Email already exists',
+            ], 422);
+        }
 
         $employee = Employee::create($validatedData);
 

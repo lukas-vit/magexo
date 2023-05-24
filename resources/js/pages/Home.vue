@@ -2,7 +2,6 @@
 import { ref, onMounted } from "vue";
 import axios from "axios";
 
-
 const employees = ref([]);
 const meta = ref({});
 
@@ -45,7 +44,6 @@ const saveEmployee = (employee) => {
         .then((response) => {
             console.log(response.data);
             fetchEmployees();
-            closeModal();
         })
         .catch((error) => {
             console.error(error);
@@ -55,8 +53,6 @@ const saveEmployee = (employee) => {
 onMounted(() => {
     fetchEmployees();
 });
-
-
 </script>
 
 <template>
@@ -72,7 +68,7 @@ onMounted(() => {
                                 <h1
                                     class="text-base font-semibold leading-6 text-gray-900"
                                 >
-                                    Job Postings
+                                    Employee listings
                                 </h1>
                                 <p class="mt-2 text-sm text-gray-700">
                                     A list of all the employees in your company
@@ -81,10 +77,10 @@ onMounted(() => {
                             </div>
                             <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
                                 <router-link
-                                    to="/add-employee"
+                                    to="/employee/add"
                                     class="block rounded-md bg-primary px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-primary-darker focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                                     >
-                                    Create new job
+                                    Create new employee
                                 </router-link>
                             </div>
                         </div>
@@ -103,7 +99,7 @@ onMounted(() => {
                                             class="divide-y divide-gray-200 bg-white"
                                         >
                                             <EmployeeList
-                                                :employees="employees"
+                                                :employees="employees" :fetchEmployees="fetchEmployees"
                                             />
                                         </tbody>
                                     </table>

@@ -16,7 +16,7 @@ import {
 } from "@heroicons/vue/24/outline";
 
 const navigation = [
-    { name: "Dashboard", href: "#", current: true },
+    { name: "Dashboard", href: "/", current: true },
     { name: "Team", href: "#", current: false },
     { name: "Projects", href: "#", current: false },
     { name: "Calendar", href: "#", current: false },
@@ -49,10 +49,10 @@ const userNavigation = [
                                 <div
                                     class="ml-10 flex items-baseline space-x-4"
                                 >
-                                    <a
+                                    <router-link
                                         v-for="item in navigation"
                                         :key="item.name"
-                                        :href="item.href"
+                                        :to="item.href"
                                         :class="[
                                             item.current
                                                 ? 'bg-gray-900 text-white'
@@ -62,7 +62,7 @@ const userNavigation = [
                                         :aria-current="
                                             item.current ? 'page' : undefined
                                         "
-                                        >{{ item.name }}</a
+                                        >{{ item.name }}</router-link
                                     >
                                 </div>
                             </div>
@@ -113,15 +113,15 @@ const userNavigation = [
                                                 :key="item.name"
                                                 v-slot="{ active }"
                                             >
-                                                <a
-                                                    :href="item.href"
+                                                <router-link
+                                                    :to="item.href"
                                                     :class="[
                                                         active
                                                             ? 'bg-gray-100'
                                                             : '',
                                                         'block px-4 py-2 text-sm text-gray-700',
                                                     ]"
-                                                    >{{ item.name }}</a
+                                                    >{{ item.name }}</router-link
                                                 >
                                             </MenuItem>
                                         </MenuItems>

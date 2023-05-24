@@ -15,6 +15,8 @@ declare module '@vue/runtime-core' {
     EmployeeList: typeof import('./resources/js/components/EmployeeList.vue')['default']
     Head: typeof import('./resources/components/Head.vue')['default']
     Header: typeof import('./resources/js/components/Header.vue')['default']
+    Input: typeof import('./resources/js/components/Input.vue')['default']
+    Modal: typeof import('./resources/js/components/Modal.vue')['default']
     Navigation: typeof import('./resources/components/Navigation.vue')['default']
     Pagination: typeof import('./resources/js/components/Pagination.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
