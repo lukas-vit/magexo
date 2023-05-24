@@ -18,7 +18,6 @@ const fetchEmployees = () => {
         });
 };
 
-
 const fetchEmployeesByPage = (page) => {
     axios
         .get("/api/employees", {
@@ -29,21 +28,6 @@ const fetchEmployeesByPage = (page) => {
         .then((response) => {
             employees.value = response.data.data;
             meta.value = response.data.meta;
-        })
-        .catch((error) => {
-            console.error(error);
-        });
-};
-
-const selectedEmployee = ref({});
-
-const saveEmployee = (employee) => {
-    console.log(employee);
-    axios
-        .put(`/api/employees/${employee.id}`, employee)
-        .then((response) => {
-            console.log(response.data);
-            fetchEmployees();
         })
         .catch((error) => {
             console.error(error);

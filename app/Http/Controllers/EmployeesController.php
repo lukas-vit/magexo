@@ -40,10 +40,10 @@ class EmployeesController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'name' => 'required',
-            'designation' => 'required',
-            'email' => 'required|email|unique:employees',
-            'department' => 'required',
+            'name' => 'required|max:255',
+            'designation' => 'required|max:255',
+            'email' => 'required|email|unique:employees|max:255',
+            'department' => 'required|max:255',
         ]);
 
         //check for unique email
@@ -63,14 +63,15 @@ class EmployeesController extends Controller
     public function update(Request $request, Employee $employee)
     {
         $validatedData = $request->validate([
-            'name' => 'required',
-            'designation' => 'required',
+            'name' => 'required|max:255',
+            'designation' => 'required|max:255',
             'email' => [
                 'required',
                 'email',
+                'max:255',
                 Rule::unique('employees')->ignore($employee->id),
             ],
-            'department' => 'required',
+            'department' => 'required|max:255',
         ]);
 
         $employee->update($validatedData);

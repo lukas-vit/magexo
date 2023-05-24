@@ -17,9 +17,11 @@ const props = defineProps({
         type: Function,
         default: () => console.log("Submit function not defined"),
     },
+    buttonValue: {
+        type: String,
+        default: "Submit",
+    },
 });
-
-console.log(props.employee);
 
 const schema = yup.object({
     email: yup
@@ -115,7 +117,7 @@ const schema = yup.object({
                 @click="onSubmit"
                 class="rounded-md bg-primary px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-primary-darker focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
             >
-                Create
+                {{ props.buttonValue }}
             </button>
         </div>
     </Form>

@@ -11,10 +11,7 @@ const props = defineProps({
     type: String,
   },
   modelValue: {
-    type: [String, Number, Boolean] as PropType<
-      string | number | boolean | null
-    >,
-    default: undefined,
+    type: String,
   },
   id: {
     type: String,
@@ -43,8 +40,8 @@ defineEmits(["update:modelValue"]);
 
   <div class="mt-1">
     <Field
-      :value="modelValue"
-      @input="$emit('update:modelValue', $event.target.value)"
+      :modelValue="modelValue"
+      @update:modelValue="$emit('update:modelValue', $event)"
       :id="id"
       :name="name!"
       :type="type"

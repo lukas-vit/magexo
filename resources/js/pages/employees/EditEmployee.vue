@@ -2,13 +2,13 @@
 import { toast } from 'vue3-toastify';
 import 'vue3-toastify/dist/index.css';
 import { useRouter } from "vue-router";
-import { ref, onMounted } from "vue";
+import { ref, onMounted, reactive } from "vue";
 
 const router = useRouter();
 const id = router.currentRoute.value.params.id;
 
-//fetch user data
 const employee = ref({});
+
 const fetchEmployee = () => {
     axios
         .get(`/api/employees/${id}`)
@@ -20,29 +20,27 @@ const fetchEmployee = () => {
         });
 };
 
-onMounted(() => {
-    fetchEmployee();
-});
-
 const updateEmployee = (employee) => {
     if (!employee.name || !employee.email || !employee.designation || !employee.department) {
         //toast.error('Please fill all the fields!');
         return;
     }
     axios
-        .put(`/api/employees/${employee.id}`, employee)
+        .put(`/api/employees/${id}`, employee)
         .then((response) => {
-            console.log(response.data);
             toast.success('Employee updated successfully!');
         })
         .catch((error) => {
             console.error(error);
         });
-    
-        if (employee) {
-            router.push({ name: "employees" });
-        }
 };
+
+
+onMounted(() => {
+    fetchEmployee();
+});
+
+
 </script>
 
 <template>
@@ -53,7 +51,7 @@ const updateEmployee = (employee) => {
                     class="border-b border-gray-200 bg-white px-4 py-8 sm:px-6"
                 >
                     <div class="px-4 sm:px-6 lg:px-8">
-                        <EmployeeForm :employee="employee" :onSubmit="updateEmployee" />
+                        <EmployeeForm :employee="employee" :onSubmit="updateEmployee" buttonValue="Update" />
                     </div>
                 </div>
             </div>

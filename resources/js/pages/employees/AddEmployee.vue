@@ -32,7 +32,7 @@ const createEmployee = (employee) => {
                     class="border-b border-gray-200 bg-white px-4 py-8 sm:px-6"
                 >
                     <div class="px-4 sm:px-6 lg:px-8">
-                        <EmployeeForm :onSubmit="createEmployee" />
+                        <EmployeeForm :onSubmit="createEmployee" buttonValue="Create" />
                     </div>
                 </div>
             </div>
